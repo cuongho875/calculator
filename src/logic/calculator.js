@@ -21,6 +21,7 @@ function calculator(obj,buttonName) {
         }
     }
     if(buttonName==="+"||buttonName==="-"||buttonName==="X"||buttonName==="/"){
+        console.log(obj.total+ ": " +obj.next)
             return{
                 total:operate(obj.total,obj.next,obj.operation),
                 next:null,
@@ -31,7 +32,7 @@ function calculator(obj,buttonName) {
         if(obj.next){
             return{
                 total:operate(obj.total,obj.next,obj.operation),
-                next:null,
+                next:operate(obj.total,obj.next,obj.operation),
                 operation:null
             }
         }
