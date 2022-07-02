@@ -21,17 +21,19 @@ function calculator(obj,buttonName) {
         }
     }
     if(buttonName==="+"||buttonName==="-"||buttonName==="X"||buttonName==="/"){
-        if(obj.next){
             return{
-                total:operate(obj.total,obj.next,buttonName),
+                total:operate(obj.total,obj.next,obj.operation),
                 next:null,
                 operation:buttonName
             }
-        }
-        return{
-            total:operate(obj.total,0,buttonName),
-            next:null,
-            operation:buttonName
+    }
+    if(obj.operation){
+        if(obj.next){
+            return{
+                total:operate(obj.total,obj.next,obj.operation),
+                next:null,
+                operation:null
+            }
         }
     }
     if(buttonName==="="){
